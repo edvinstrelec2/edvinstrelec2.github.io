@@ -2853,3 +2853,72 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+/*--------------------------------------------------------------
+# Lab 8: Paslaugų lentelė, sąrašai ir medija
+--------------------------------------------------------------*/
+.services .service-block {
+  margin-top: 60px;
+}
+
+.services .service-block h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.services .service-block h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.services .service-table {
+  --bs-table-bg: var(--surface-color);
+  --bs-table-color: var(--default-color);
+  --bs-table-border-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  margin-bottom: 0;
+}
+
+.services .service-table caption {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.services .service-table thead th {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-color: var(--accent-color);
+}
+
+.services .service-table th,
+.services .service-table td {
+  padding: 14px 18px;
+}
+
+.services .service-list {
+  padding-left: 1.4rem;
+  margin: 0;
+}
+
+.services .service-list li {
+  margin-bottom: 8px;
+}
+
+.services .service-list ul {
+  margin-top: 8px;
+  list-style: circle;
+}
+
+.services .service-media {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.services audio.service-media {
+  width: 100%;
+}
+
+.services .media-caption {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
