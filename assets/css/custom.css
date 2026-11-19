@@ -1,0 +1,720 @@
+/*--------------------------------------------------------------
+# custom.css – 9 laboratorinis darbas
+# Šis failas jungiamas PO main.css, todėl pakeičia šablono stilius.
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# 1. Kintamieji: šriftai ir spalvos
+--------------------------------------------------------------*/
+:root {
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --heading-font: "Space Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --nav-font: "Space Grotesk", "Inter", system-ui, sans-serif;
+
+  --background-color: #0d171d;
+  --default-color: #dfe9ee;
+  --heading-color: #f4fbff;
+  --accent-color: #38d6c3;
+  --surface-color: #16232b;
+  --contrast-color: #08141a;
+
+  --nav-hover-color: #38d6c3;
+  --nav-dropdown-hover-color: #38d6c3;
+
+  /* papildomi kintamieji šiam failui */
+  --text-soft: #cfdde4;
+  --text-muted: #b4c6cf;
+  --accent-light: #7ee8da;
+  --accent-2: #4f9bff;
+  --gradient: linear-gradient(135deg, #38d6c3 0%, #4f9bff 100%);
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --radius-md: 14px;
+  --radius-lg: 18px;
+}
+
+/*--------------------------------------------------------------
+# 2. Tipografija: šriftai, antraštės, pastraipos
+--------------------------------------------------------------*/
+body {
+  font-family: var(--default-font);
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.005em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+p {
+  font-size: 1.03rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+  margin-bottom: 1.25rem;
+}
+
+/* Šablono antraščių ir pastraipų taisyklės turi didesnį specifiškumą,
+   todėl pakartojame jų selektorius */
+.section-title h2 {
+  font-size: clamp(2.2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 1rem auto 0;
+  border-radius: 4px;
+  background: var(--gradient);
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+
+.hero .hero-content h1 {
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.hero .hero-content h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.hero .hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+
+.about .intro-content .eyebrow {
+  color: var(--accent-color);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.about .intro-content .headline {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.about .intro-content .lead {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e6f0f5;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--accent-color);
+}
+
+.about .intro-content p {
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+
+.skills .skill-box h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.skills .skill-box p {
+  opacity: 1;
+  color: var(--text-muted);
+}
+
+.resume .resume-item .resume-title {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.resume .resume-item article h4 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.resume .resume-item article .institution,
+.resume .resume-item article .company {
+  color: var(--text-muted);
+}
+
+.portfolio .portfolio-card .portfolio-info h4 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.portfolio .portfolio-card .portfolio-info p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/*--------------------------------------------------------------
+# 3a. Mygtukai ir jų pseudo-klasės (:hover, :active)
+--------------------------------------------------------------*/
+.btn,
+.hero .hero-actions .btn,
+.about .intro-content .cta-group .btn-ghost,
+.portfolio .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 13px 28px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, filter 0.25s ease;
+}
+
+/* pagrindinis mygtukas */
+.hero .hero-actions .btn.btn-primary,
+.btn-primary,
+.portfolio .btn-primary {
+  background: var(--gradient);
+  color: var(--contrast-color);
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(56, 214, 195, 0.28);
+}
+
+.hero .hero-actions .btn.btn-primary:hover,
+.btn-primary:hover,
+.portfolio .btn-primary:hover {
+  background: var(--gradient);
+  color: var(--contrast-color);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(56, 214, 195, 0.42);
+  filter: brightness(1.08);
+}
+
+.hero .hero-actions .btn.btn-primary:active,
+.btn-primary:active,
+.portfolio .btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 3px 8px rgba(56, 214, 195, 0.3);
+  filter: brightness(0.92);
+}
+
+/* kontūrinis mygtukas */
+.hero .hero-actions .btn.btn-outline {
+  background: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.hero .hero-actions .btn.btn-outline:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(56, 214, 195, 0.35);
+}
+
+.hero .hero-actions .btn.btn-outline:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+  filter: brightness(0.9);
+}
+
+/* „ghost“ mygtukas skiltyje „Apie“ */
+.about .intro-content .cta-group .btn-ghost {
+  background: rgba(56, 214, 195, 0.1);
+  color: var(--accent-light);
+  border: 2px dashed rgba(56, 214, 195, 0.6);
+}
+
+.about .intro-content .cta-group .btn-ghost:hover,
+.about .intro-content .cta-group .btn-ghost:focus {
+  background: var(--gradient);
+  color: var(--contrast-color);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(56, 214, 195, 0.35);
+}
+
+.about .intro-content .cta-group .btn-ghost:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+  filter: brightness(0.9);
+}
+
+/* aiškus fokusas klaviatūros naudotojams */
+.btn:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 3px solid rgba(126, 232, 218, 0.7);
+  outline-offset: 3px;
+}
+
+/*--------------------------------------------------------------
+# 3b. Nuorodos
+--------------------------------------------------------------*/
+a {
+  color: var(--accent-color);
+  transition: color 0.25s ease, background-color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+a:hover {
+  color: #aaf5ec;
+}
+
+a:active {
+  color: #ffffff;
+}
+
+a:focus-visible {
+  outline: 3px solid rgba(56, 214, 195, 0.55);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* nuorodos tekste ir poraštėje */
+main a:not([class]),
+.footer .credits a,
+.media-caption a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  text-decoration-color: rgba(56, 214, 195, 0.45);
+  border-radius: 3px;
+}
+
+main a:not([class]):hover,
+.footer .credits a:hover,
+.media-caption a:hover {
+  color: #ffffff;
+  background-color: rgba(56, 214, 195, 0.18);
+  text-decoration-color: var(--accent-color);
+}
+
+/* „Mano patirtis“ nuoroda skiltyje „Apie“ */
+.about .intro-content .cta-group .link-underline {
+  color: var(--accent-light);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.about .intro-content .cta-group .link-underline::after {
+  height: 2px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+.about .intro-content .cta-group .link-underline:hover,
+.about .intro-content .cta-group .link-underline:focus {
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# 4a. Tarpai (margin / padding): „Apie“, „Patirtis“, „Atlikti darbai“
+--------------------------------------------------------------*/
+.about.section,
+.resume.section,
+.portfolio.section {
+  padding: 100px 0;
+}
+
+.about .section-title,
+.resume .section-title,
+.portfolio .section-title {
+  padding-bottom: 56px;
+}
+
+/* Apie */
+.about .intro-content .eyebrow {
+  margin-bottom: 20px;
+}
+
+.about .intro-content .headline {
+  margin-bottom: 32px;
+}
+
+.about .intro-content .lead {
+  margin-bottom: 32px;
+}
+
+.about .intro-content p {
+  margin-bottom: 28px;
+}
+
+.about .intro-content .cta-group {
+  margin-top: 40px;
+  gap: 32px;
+}
+
+/* Patirtis */
+.resume .resume-item {
+  margin-bottom: 4.5rem;
+}
+
+.resume .resume-item .resume-title {
+  margin-bottom: 2rem;
+}
+
+.resume .resume-item .resume-content {
+  padding-left: 2rem;
+  border-left: 3px solid rgba(56, 214, 195, 0.35);
+}
+
+/* Atlikti darbai */
+.portfolio .portfolio-filters {
+  gap: 14px;
+  margin-bottom: 3rem;
+}
+
+.portfolio .portfolio-filters li {
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 214, 195, 0.35);
+}
+
+.portfolio .portfolio-card .portfolio-info {
+  padding: 1.75rem;
+}
+
+.portfolio .portfolio-card .portfolio-info h4 {
+  margin-bottom: 0.5rem;
+}
+
+.portfolio .portfolio-card .portfolio-info p {
+  margin-bottom: 1rem;
+}
+
+/*--------------------------------------------------------------
+# 4b. Turinio blokų išvaizda: kraštinės, užapvalinimai, šešėliai
+--------------------------------------------------------------*/
+/* Apie: nuotrauka */
+.about .profile-figure .profile-photo {
+  background: var(--surface-color);
+  border: 3px solid rgba(56, 214, 195, 0.45);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 10px rgba(56, 214, 195, 0.06);
+}
+
+/* Patirtis: įrašai tampa kortelėmis */
+.resume .resume-item article {
+  margin-bottom: 2.25rem;
+  padding: 1.75rem 2rem;
+  background: var(--surface-color);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.resume .resume-item article:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 214, 195, 0.45);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+}
+
+.resume .resume-item article::before {
+  left: -2.6rem;
+}
+
+.resume .resume-item article:last-child {
+  margin-bottom: 0;
+}
+
+/* Atlikti darbai: kortelės */
+.portfolio .portfolio-card {
+  margin-bottom: 2.25rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio .portfolio-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56, 214, 195, 0.5);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio .portfolio-card .portfolio-info .portfolio-tags span {
+  border-radius: 8px;
+}
+
+@media (max-width: 767.98px) {
+  .about.section,
+  .resume.section,
+  .portfolio.section {
+    padding: 70px 0;
+  }
+
+  .resume .resume-item article {
+    padding: 1.25rem;
+  }
+
+  .resume .resume-content {
+    padding-left: 1.25rem !important;
+  }
+
+  .resume .resume-item article::before,
+  .resume article::before {
+    left: -1.85rem !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# 5. Dviejų komponentų stilius: progreso juostos ir „į viršų“ mygtukas
+--------------------------------------------------------------*/
+/* 5.1 Progreso juostos (Įgūdžiai ir Patirtis) */
+.skills .skill-box .progress,
+.resume .skill-item .progress {
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+.skills .skill-box .progress .progress-bar,
+.resume .skill-item .progress .progress-bar {
+  background: var(--gradient);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(56, 214, 195, 0.55);
+}
+
+.resume .skill-item .progress .progress-bar::after {
+  color: var(--accent-light);
+}
+
+/* 5.2 „Į viršų“ mygtukas */
+.scroll-top {
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: var(--gradient);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.scroll-top i {
+  color: var(--contrast-color);
+}
+
+.scroll-top:hover {
+  background: var(--gradient);
+  color: var(--contrast-color);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(56, 214, 195, 0.4);
+}
+
+.scroll-top.active {
+  bottom: 24px;
+}
+
+/*--------------------------------------------------------------
+# Papildoma užduotis 1: sąrašai (paslaugų skiltis)
+--------------------------------------------------------------*/
+/* nenumeruotas sąrašas: rombo formos ženkliukas (::before) */
+.services ul.service-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.services ul.service-list > li {
+  position: relative;
+  padding-left: 1.9rem;
+  margin-bottom: 0.7rem;
+}
+
+.services ul.service-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.62em;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--gradient);
+  transform: rotate(45deg);
+}
+
+/* įdėtinis sąrašas: kitoks išvaizda nei pagrindinio */
+.services ul.service-list ul {
+  margin: 0.6rem 0 0.4rem;
+  padding-left: 1.25rem;
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-left: 2px dashed rgba(79, 155, 255, 0.55);
+}
+
+.services ul.service-list ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.services ul.service-list ul > li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  transform: none;
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+/* numeruotas sąrašas: skaitikliai (counters) */
+.services ol.service-list {
+  counter-reset: etapas;
+  padding-left: 0;
+  list-style: none;
+}
+
+.services ol.service-list > li {
+  counter-increment: etapas;
+  position: relative;
+  padding: 0.5rem 0 1rem 3.4rem;
+  margin: 0;
+}
+
+.services ol.service-list > li::before {
+  content: counter(etapas);
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+.services ol.service-list > li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 2.8rem;
+  bottom: 0.1rem;
+  width: 2px;
+  background: rgba(56, 214, 195, 0.3);
+}
+
+/*--------------------------------------------------------------
+# Papildoma užduotis 2: lentelė
+--------------------------------------------------------------*/
+.services .service-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+}
+
+/* vienodi vidiniai tarpai ir turinio lygiavimas centre */
+.services .service-table th,
+.services .service-table td {
+  padding: 16px 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-color: var(--border-soft);
+}
+
+/* antraštinė eilutė */
+.services .service-table thead th {
+  background: var(--gradient);
+  color: var(--contrast-color);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-color: transparent;
+}
+
+/* „zebra“ stilius */
+.services .service-table tbody tr:nth-child(odd) > * {
+  background-color: var(--surface-color);
+  color: var(--default-color);
+}
+
+.services .service-table tbody tr:nth-child(even) > * {
+  background-color: #1f323d;
+  color: var(--default-color);
+}
+
+/* eilutės :hover efektas */
+.services .service-table tbody tr > * {
+  transition: background-color 0.25s ease;
+}
+
+.services .service-table tbody tr:hover > * {
+  background-color: rgba(56, 214, 195, 0.2);
+  color: #ffffff;
+}
+
+.services .service-table caption {
+  color: var(--text-muted);
+  text-align: center;
+}
