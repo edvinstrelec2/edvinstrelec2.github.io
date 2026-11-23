@@ -883,36 +883,36 @@ main a:not([class]):hover,
   border: 2px solid rgba(56, 214, 195, 0.42);
   border-radius: 50%;
   box-shadow: inset 0 0 20px rgba(56, 214, 195, 0.15);
-  animation: ld10-about-circle 5s ease-in-out infinite alternate;
+  animation: ld10-about-circle 1.4s ease-in-out infinite alternate;
 }
 
 #about::after {
-  bottom: clamp(1.5rem, 4vw, 3rem);
+  top: clamp(2rem, 6vw, 5rem);
   left: clamp(1.5rem, 11vw, 10rem);
   width: clamp(3.2rem, 7vw, 6rem);
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
   background: var(--gradient);
   opacity: 0.28;
-  animation: ld10-about-triangle 8s ease-in-out infinite alternate;
+  animation: ld10-about-triangle 1.8s ease-in-out infinite alternate;
 }
 
 @keyframes ld10-about-circle {
   from {
-    transform: translateY(0) scale(0.9);
+    transform: translateY(6px) scale(0.9);
   }
 
   to {
-    transform: translateY(-12px) scale(1.1);
+    transform: translateY(-22px) scale(1.15);
   }
 }
 
 @keyframes ld10-about-triangle {
   from {
-    transform: translateX(-6px) rotate(-16deg);
+    transform: translate(-10px, 8px) rotate(-25deg);
   }
 
   to {
-    transform: translateX(12px) rotate(24deg);
+    transform: translate(10px, -16px) rotate(30deg);
   }
 }
 
@@ -924,9 +924,7 @@ main a:not([class]):hover,
   .section-title h2::after,
   .services .service-item:hover .service-icon i::before,
   #services,
-  #services .section-title::after,
-  #about::before,
-  #about::after {
+  #services .section-title::after {
     animation: none;
   }
 }
