@@ -721,19 +721,19 @@ main a:not([class]):hover,
 
 /* 10 laboratorinis darbas: CSS animacijos */
 
-.hero .social-links a i {
-  animation: ld10-social-bounce 3.2s ease-in-out infinite;
+:is(.header-social-links, .social-links) a i::before {
+  animation: ld10-social-bounce 2s ease-in-out infinite;
 }
 
-.hero .social-links a:nth-child(2) i {
+:is(.header-social-links, .social-links) a:nth-child(2) i::before {
   animation-delay: 120ms;
 }
 
-.hero .social-links a:nth-child(3) i {
+:is(.header-social-links, .social-links) a:nth-child(3) i::before {
   animation-delay: 240ms;
 }
 
-.hero .social-links a:nth-child(4) i {
+:is(.header-social-links, .social-links) a:nth-child(4) i::before {
   animation-delay: 360ms;
 }
 
@@ -744,7 +744,7 @@ main a:not([class]):hover,
   }
 
   25% {
-    transform: translateY(-4px) scale(1.15);
+    transform: translateY(-7px) scale(1.2);
     opacity: 1;
   }
 
@@ -756,6 +756,16 @@ main a:not([class]):hover,
   65% {
     transform: translateY(-1px) scale(1.03);
     opacity: 0.95;
+  }
+}
+
+@keyframes ld10-social-pulse {
+  0%, 100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
 
@@ -917,7 +927,10 @@ main a:not([class]):hover,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero .social-links a i,
+  :is(.header-social-links, .social-links) a i::before {
+    animation-name: ld10-social-pulse;
+  }
+
   .hero .hero-content h1::before,
   .hero .hero-content h1::after,
   .section-title h2::before,
