@@ -943,6 +943,19 @@ main a:not([class]):hover,
 }
 
 /* 11 laboratorinis darbas: vertinimo forma */
+.contact .info-box h3,
+.contact .info-item .content h4 {
+  color: var(--heading-color);
+}
+
+.contact .info-item .icon-box i {
+  color: var(--accent-light);
+}
+
+.contact .info-item:hover .icon-box i {
+  color: var(--contrast-color);
+}
+
 .contact #feedback-form .form-control.is-invalid {
   border-color: #ff929b;
 }
@@ -957,14 +970,21 @@ main a:not([class]):hover,
 }
 
 .contact #feedback-form button[type="submit"]:disabled {
-  background: var(--background-color);
-  color: var(--default-color);
-  opacity: 0.6;
+  background: color-mix(in srgb, var(--text-muted) 12%, var(--surface-color));
+  border-color: color-mix(in srgb, var(--text-muted) 55%, var(--surface-color));
+  color: var(--text-muted);
+  opacity: 1;
 }
 
 .contact #feedback-form button[type="reset"] {
+  background: var(--background-color);
   border: 1px solid var(--accent-color);
   color: var(--accent-light);
+}
+
+.contact #feedback-form button[type="reset"]:hover {
+  background: var(--surface-color);
+  border-color: var(--accent-light);
 }
 
 .feedback-results {
