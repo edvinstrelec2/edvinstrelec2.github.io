@@ -1008,3 +1008,226 @@ main a:not([class]):hover,
 #feedback-average {
   color: var(--accent-light);
 }
+
+/* 12 laboratorinis darbas: įgūdžių pažanga */
+.skill-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface-color);
+}
+
+.skill-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-profile img {
+  flex-shrink: 0;
+  width: 5rem;
+  height: auto;
+}
+
+#skill-level,
+#skill-next {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+#skill-xp,
+#skill-meter-value {
+  color: var(--accent-light);
+}
+
+.skill-meter > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.skill-meter progress {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 0.65rem;
+  margin: 0.55rem 0;
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--background-color);
+}
+
+.skill-meter progress::-webkit-progress-bar {
+  background: var(--background-color);
+}
+
+.skill-meter progress::-webkit-progress-value {
+  background: var(--gradient);
+}
+
+.skill-meter progress::-moz-progress-bar {
+  background: var(--gradient);
+}
+
+.skill-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.skill-stats dt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.skill-stats dd {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.skill-board,
+.skill-achievements {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skill-column {
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+  border-top: 3px solid var(--text-muted);
+  border-radius: var(--radius-md);
+  background: var(--surface-color);
+}
+
+.skill-column[data-status="learning"] {
+  border-top-color: var(--accent-2);
+}
+
+.skill-column[data-status="done"] {
+  border-top-color: var(--accent-color);
+}
+
+.skill-column h4,
+.skill-achievement h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.skill-list,
+.skill-achievements {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.skill-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.55rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 0.65rem;
+  background: var(--background-color);
+}
+
+.skill-card h5 {
+  margin: 0;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.skill-card-xp {
+  color: var(--accent-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.skill-card select {
+  grid-column: 1 / -1;
+  color-scheme: dark;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border-color: var(--border-soft);
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23b4c6cf' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  scroll-margin-top: 5rem;
+}
+
+.skill-card select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.skill-empty {
+  padding: 0.5rem 0;
+}
+
+.skill-empty,
+.skill-achievement p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+.skill-achievement {
+  padding: 1rem;
+  border: 1px dashed var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface-color);
+}
+
+.skill-achievement h4 {
+  margin: 0.35rem 0;
+}
+
+.skill-achievement-state {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.skill-achievement[data-unlocked="true"] {
+  border: 1px solid var(--accent-color);
+}
+
+.skill-achievement[data-unlocked="true"] .skill-achievement-state {
+  color: var(--accent-light);
+}
+
+@media (max-width: 991.98px) {
+  .skill-overview {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .skill-stats {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .skill-board,
+  .skill-achievements {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skill-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
