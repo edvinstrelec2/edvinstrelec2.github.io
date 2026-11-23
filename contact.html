@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Contact - FolioOne Bootstrap Template</title>
+  <title>Kontaktai – Edvin Strelec</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -79,14 +79,14 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
+        <h2>Kontaktai</h2>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row g-4 g-lg-5">
           <div class="col-lg-5">
-            <div class="info-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="info-box" lang="en" data-aos="fade-up" data-aos-delay="200">
               <h3>Contact Info</h3>
               <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
 
@@ -127,38 +127,78 @@
 
           <div class="col-lg-7">
             <div class="contact-form" data-aos="fade-up" data-aos-delay="300">
-              <h3>Get In Touch</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <h3>Įvertinkite svetainę</h3>
+              <p>Duomenys tvarkomi naršyklėje. Įvertinimų vidurkį ir įvestus duomenis matysite po forma.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
+              <form id="feedback-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="first-name">Vardas</label>
+                    <input class="form-control" id="first-name" name="first-name" type="text" autocomplete="given-name" required aria-describedby="first-name-error">
+                    <div class="invalid-feedback" id="first-name-error"></div>
+                  </div>
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <label class="form-label" for="last-name">Pavardė</label>
+                    <input class="form-control" id="last-name" name="last-name" type="text" autocomplete="family-name" required aria-describedby="last-name-error">
+                    <div class="invalid-feedback" id="last-name-error"></div>
                   </div>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <div class="col-md-6">
+                    <label class="form-label" for="email">El. paštas</label>
+                    <input class="form-control" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+                    <div class="invalid-feedback" id="email-error"></div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label" for="phone">Tel. numeris</label>
+                    <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="+370 6xx xxxxx" required aria-describedby="phone-error">
+                    <div class="invalid-feedback" id="phone-error"></div>
                   </div>
 
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <label class="form-label" for="address">Adresas</label>
+                    <input class="form-control" id="address" name="address" type="text" autocomplete="street-address" required aria-describedby="address-error">
+                    <div class="invalid-feedback" id="address-error"></div>
                   </div>
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <fieldset class="col-12">
+                    <legend class="fs-5 mb-3">Įvertinimai nuo 1 iki 10</legend>
+                    <div class="row g-3">
+                      <div class="col-sm-4">
+                        <label class="form-label" for="design-rating">Svetainės dizainas</label>
+                        <input class="form-control" id="design-rating" name="design-rating" type="number" min="1" max="10" step="1" inputmode="numeric" required aria-describedby="design-rating-error">
+                        <div class="invalid-feedback" id="design-rating-error"></div>
+                      </div>
+
+                      <div class="col-sm-4">
+                        <label class="form-label" for="navigation-rating">Naršymo patogumas</label>
+                        <input class="form-control" id="navigation-rating" name="navigation-rating" type="number" min="1" max="10" step="1" inputmode="numeric" required aria-describedby="navigation-rating-error">
+                        <div class="invalid-feedback" id="navigation-rating-error"></div>
+                      </div>
+
+                      <div class="col-sm-4">
+                        <label class="form-label" for="content-rating">Turinio aiškumas</label>
+                        <input class="form-control" id="content-rating" name="content-rating" type="number" min="1" max="10" step="1" inputmode="numeric" required aria-describedby="content-rating-error">
+                        <div class="invalid-feedback" id="content-rating-error"></div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <div class="col-12 d-flex flex-wrap gap-2 mt-4">
+                    <button type="submit" class="btn" disabled>Siųsti</button>
+                    <button type="reset" class="btn">Išvalyti</button>
                   </div>
-
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                    <button type="submit" class="btn">Send Message</button>
-                  </div>
-
                 </div>
               </form>
+
+              <div id="feedback-status" role="status" aria-atomic="true">
+                <div id="feedback-results" class="feedback-results mt-4" hidden>
+                  <h4>Pateikti duomenys</h4>
+                  <dl class="mb-3"></dl>
+                  <strong id="feedback-average"></strong>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -202,7 +242,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
@@ -214,6 +253,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
